@@ -1,7 +1,7 @@
 import XCTest
-@testable import chmediapipe
+@testable import CHMediaPipe
 
-final class chmediapipeTests: XCTestCase {
+final class CHMediaPipeTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest
