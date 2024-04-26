@@ -7,15 +7,23 @@ let package = Package(
   name: "CHMediaPipe",
   platforms: [.iOS(.v14)],
   products: [
-    .library(name: "CHMediaPipe", targets: ["MediaPipeTasksVision"]),
+    .library(name: "CHMediaPipe", targets: ["MediaPipeTasksVisionTarget"]),
   ],
   targets: [
     .target(
-      name: "MediaPipeTaskWrapper",
+      name: "MediaPipeTasksVisionTarget",
+      dependencies: [
+        .target(name: "MediaPipeTasksVisionWrapper")
+      ],
+      path: "Sources/MediaPipeTasksVisionTarget"
+    ),
+    .target(
+      name: "MediaPipeTasksVisionWrapper",
       dependencies: [
         .target(name: "MediaPipeTasksVision"),
         .target(name: "MediaPipeTasksCommon")
-      ]
+      ],
+      path: "Sources/MediaPipeTasksVisionWrapper"
     ),
     .binaryTarget(
       name: "MediaPipeTasksVision",
