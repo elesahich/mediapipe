@@ -10,9 +10,20 @@ let package = Package(
     .library(name: "CHMediaPipe", targets: ["MediaPipeTasksVision"]),
   ],
   targets: [
+    .target(
+      name: "MediaPipeTaskWrapper",
+      dependencies: [
+        .target(name: "MediaPipeTasksVision"),
+        .target(name: "MediaPipeTasksCommon")
+      ]
+    ),
     .binaryTarget(
       name: "MediaPipeTasksVision",
       path: "MediaPipeTasksVision.xcframework"
+    ),
+    .binaryTarget(
+      name: "MediaPipeTasksCommon",
+      path: "MediaPipeTasksCommon.xcframework"
     )
   ]
 )
