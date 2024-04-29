@@ -3,6 +3,12 @@
 
 import PackageDescription
 
+let swiftSettings: [SwiftSetting] = [
+  .define("-force_load"),
+  .define("graph_libraries/libMediaPipeTasksCommon_simulator_graph.a"),
+  .define("graph_libraries/libMediaPipeTasksCommon_device_graph.a")
+]
+
 let package = Package(
   name: "CHMediaPipe",
   platforms: [.iOS(.v14)],
@@ -23,7 +29,8 @@ let package = Package(
         .target(name: "MediaPipeTasksVision"),
         .target(name: "MediaPipeTasksCommon")
       ],
-      path: "Sources/MediaPipeTasksVisionWrapper"
+      path: "Sources/MediaPipeTasksVisionWrapper",
+      swiftSettings: swiftSettings
     ),
     .binaryTarget(
       name: "MediaPipeTasksVision",
