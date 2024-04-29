@@ -4,9 +4,11 @@
 import PackageDescription
 
 let swiftSettings: [SwiftSetting] = [
-  .define("-force_load"),
-  .define("graph_libraries/libMediaPipeTasksCommon_simulator_graph.a"),
-  .define("graph_libraries/libMediaPipeTasksCommon_device_graph.a")
+  .unsafeFlags([
+    "-force_load",
+    "mediapipe_graph_libraries/libMediaPipeTasksCommon_for_simulator_graph.a",
+    "mediapipe_graph_libraries/libMediaPipeTasksCommon_for_device_graph.a"
+  ])
 ]
 
 let package = Package(
